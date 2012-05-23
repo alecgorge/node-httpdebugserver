@@ -1,0 +1,52 @@
+{
+  "name": "httpdebugserver",
+  "version": "0.1.0",
+  "author": "Alec Gorge <alecgorge+httpdebugserver@gmail.com>",
+  "description": "a simple zero-configuration command-line http server for debugging HTTP clients",
+  "main": "./lib/httpdebugserver",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alecgorge/node-httpdebugserver.git"
+  },
+  "keywords": [
+    "cli",
+    "command",
+    "http"
+  ],
+  "homepage": "http://github.com/alecgorge/node-httpdebugserver",
+  "scripts": {
+    "start": "node ./bin/httpdebugserver"
+  },
+  "contributors": [
+    {
+      "name": "Alec Gorge",
+      "email": "alecgorge+httpdebugserver@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "colors": "*",
+    "connect": "2.3.x",
+    "optimist": "0.2.x"
+  },
+  "devDependencies": {
+    "vows": "0.6.x",
+    "request": "2.9.x"
+  },
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "bugs": {
+    "url": "https://github.com/alecgorge/node-httpdebugserver/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/alecgorge/node-httpdebugserver/raw/master/LICENSE"
+    }
+  ],
+  "analyze": false,
+  "preferGlobal": "true",
+  "bin": {
+    "http-server": "./bin/http-server"
+  }
+}
