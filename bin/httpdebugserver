@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var colors = require('colors'),
-    httpServer = require('../lib/http-server'),
+    httpServer = require('../lib/httpdebugserver'),
     argv = require('optimist').argv;
 
 if (argv.h || argv.help) {
