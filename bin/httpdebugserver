@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var colors = require('colors'),
+    httpServer = require('../lib/http-server'),
+    argv = require('optimist').argv;
+
+if (argv.h || argv.help) {
+  console.log([
+    "usage: httpdebugserver [path] [options]",
+    "",
+    "options:",
+    "  -p                 Port to use [8080]",
+    "  -s --silent        Suppress log messages from output",
+    "  -d --headers       Show request headers.",
+    "  -h --help          Print this list and exit.",
+  ].join('\n'));
+  process.exit();
+}
+
+var port = argv.p || 8080,
+    log = (argv.s || argv.silent) ? (function () {}) : console.log,
+    showHeaders = (argv.d || argv.headers);
+
+var options = {
+  root: argv._[0],
+  "showHeaders": showHeaders,
+  cache: argv.c
+};
+
+function onListening() {
+  log('Starting up httpdebugserver,'
+    + ' on port: '.yellow
+    + port.toString().cyan);
+  log('Hit CTRL-C to stop the server');
+}
+
+var server = httpServer.createServer(options);
+server.listen(port, host, onListening);
+
+process.on('SIGINT', function () {
+  log('httpdebugserver stopped.'.red);
+  process.exit();
+});
